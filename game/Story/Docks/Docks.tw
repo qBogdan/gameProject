@@ -1,0 +1,22 @@
+:: Docks [nobr]
+
+<<passage "Dock Warehouse" "DockWarehouse">>
+<<passage "Look at Ship" "Ship">>
+<<passage "Clock Tower" "ClockTower">>
+<br>
+<<leave "Market District" "MarketDistrict">>
+<<leave "Beach" "Beach">>
+
+<<passage "Enter Tavern Name" "Tavern">>
+
+:: DockWarehouse
+
+    <<passage "leave" "Docks">>
+
+:: Ship 
+
+    <<passage "leave" "Docks">>
+
+:: ClockTower
+
+    <<passage "leave" "Docks">>

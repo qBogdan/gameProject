@@ -1,0 +1,6 @@
+
+:: TestArea [nobr] 
+
+<<ibutton "test" ".testButton">> 
+    <<run console.log(e)>>
+<</ibutton>>

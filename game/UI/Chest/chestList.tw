@@ -1,0 +1,20 @@
+:: chestList 
+
+<<set $chestList to [
+{
+    name: "Bush",
+    items: ["Spiced Wine", "Spiced Wine", "Spiced Wine", "Spiced Wine", "Spiced Wine", "Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom", "Leather Armor"]
+},
+{
+    name: "Cave",
+    items: ["Leather", "Leather", "Glass", "note1", "Straight Arrow"]
+},
+{
+    name: "random",
+    items: []
+},
+{
+    name: "shoreCave_194",
+    items: ["Mushroom", "Mushroom", "note1"]
+}
+]>>

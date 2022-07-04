@@ -1,0 +1,105 @@
+.itemDescriptionWindow {
+    width: 20rem;
+    height: 80vh;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    position: relative;
+
+}
+
+.parallaxItem {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    background-color: rgb(236, 203, 162);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+.itemBackground {
+    background-image: url(./game/media/1.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+}
+
+.itemImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemImage img{
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.itemFrame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(./game/media/2.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.parallaxItem img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.statRow {
+    display: flex;
+}
+
+.closeDiag {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%) translateY(50%);
+
+}
+
+.itemButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemButtons button {
+    height: 3rem;
+    min-width: 6rem;
+    background-color: violet;
+    border: none;
+    border-radius: 1rem;
+    margin: 0.5rem;
+}
+
+.closeDiag button {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}

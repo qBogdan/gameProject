@@ -1,0 +1,81 @@
+
+:: itemDescription[nobr]
+
+<div class="itemDescriptionWindow">
+<div class="parallaxItem">
+    <div  class="itemBackground"></div>
+    <div  class="itemImage">[img[$thisItem.img]]</div>
+</div>
+<p id="itemName">$thisItem.name</p>
+<<if $thisItem.cost !== undefined>>
+<p id="itemCost">Cost: $thisItem.cost Dinars</p><</if>>
+<div id="itemStats"></div>
+<p id="itemDescription">$thisItem.description</p> 
+
+<<silently>>
+    <<if $thisItem.tags.find(tag => tag === "eat")>> <<set $buttonName to "Eat">>
+    <<elseif $thisItem.tags.find(tag => tag === "drink")>> <<set $buttonName to "Drink">>
+    <<elseif $thisItem.category === "equipment">> <<set $buttonName to "Equip">>
+    <<elseif $thisItem.category === "book">> <<set $buttonName to "Read">>
+    <<else>> <<set $buttonName to "Use">>
+    <</if>>
+<</silently>>
+
+<div class="itemButtons">
+    
+    <<if $itemLocation === "inventory">>
+
+        <<if $thisItem.category !== 'resources'>>
+             <<button $buttonName>>
+                <<if $thisItem.category === "consum">>
+                    <<run $player.eat($thisItem)>>
+                    <<dialogclose>>
+                <<elseif $thisItem.category === "equipment">>
+                    <<run $player.equip($thisItem)>>
+                    <<dialogclose>>
+                <<elseif $thisItem.category === "book">>
+                    <<run $diary.read($thisItem)>>
+                <</if>>
+            <</button>> 
+        <</if>>
+       
+
+        <<button "Drop Item">>
+            <<run $inventory.removeItem($thisItem)>>
+            <<dialogclose>>
+        <</button>>
+
+    <<elseif $itemLocation === "character">>
+        <<button "Unequip">>
+        <<run $player.unequip($thisItem)>>
+        <<dialogclose>>
+        <</button>>
+    <<elseif $itemLocation === "sell">>
+        <<button "Sell">>
+            <<run $shop.sell($thisItem)>>
+            <<dialogclose>>
+        <</button>>
+    <<elseif $itemLocation === "shop">>
+        <<button "Buy">>
+            <<run $shop.buy($thisItem)>>
+            <<dialogclose>>
+        <</button>>
+    <<elseif $itemLocation === "take">>
+        <<button "Take">>
+            <<run $chest.take($thisItem)>>
+            <<dialogclose>>
+        <</button>>
+    <<elseif $itemLocation === "place">>
+        <<button "Place">>
+            <<run $chest.place($thisItem)>>
+            <<dialogclose>>
+        <</button>>
+        
+    <</if>>
+
+    
+</div>
+
+<div class="closeDiag">
+    <<button "X">> <<dialogclose>><</button>></div>
+</div>

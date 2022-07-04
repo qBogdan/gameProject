@@ -1,0 +1,77 @@
+#character {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.characterEquipment {
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .1rem;
+    background-color: antiquewhite;
+}
+
+.characterStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .1rem;
+    align-content: start;
+    width: 40%;
+    background-color: aqua;
+}
+
+.characterStats p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+.equipSlot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: brown;
+}
+
+.equipSlot img {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.equipSlot:nth-child(1) {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 2;
+}
+
+.equipSlot:nth-child(2) {
+    grid-row: 3 / span 2;
+    grid-column: 1 / span 2;
+}
+
+.equipSlot:nth-child(3) {
+    grid-row: 5 / span 2;
+    grid-column: 1 / span 2;
+}
+
+.attributeName {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: rosybrown;
+}
+
+.attribute {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: rgb(221, 148, 148);
+}
+
+.bonus {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: rgb(148, 188, 143);
+}

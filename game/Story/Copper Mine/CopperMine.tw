@@ -1,0 +1,40 @@
+
+:: CopperMine
+
+<<passage "Wagon" "Wagon">>
+<<passage "Mine Entrance" "MineEntrance">>
+
+<br>
+<<leave "Town Square" "TownSquare">>
+
+:: Wagon 
+
+<<passage "leave" "CopperMine">>
+
+:: MineEntrance
+
+<<passage "MainRoom" "CaveRoom">>
+<<passage "Leave" "CopperMine">>
+
+:: CaveRoom [nobr]
+
+<<passage "Tools" "Tools">>
+<<passage "Gear" "Gear">>
+<<passage "Desk" "Desk">>
+
+<<passage "Enter Mine" "MineExploration">>
+
+<<passage "Return" "MineEntrance">>
+
+:: Tools
+<<passage "Return" "CaveRoom">>
+
+:: Gear
+<<passage "Return" "CaveRoom">>
+
+:: Desk
+<<passage "Return" "CaveRoom">>
+<<passage "Talk to NPC" "CaveRoomNPC">>
+
+:: CaveRoomNPC
+<<passage "Leave" "Desk">>

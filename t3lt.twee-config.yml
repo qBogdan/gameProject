@@ -1,0 +1,81 @@
+sugarcube-2:
+  macros:
+    dOption:
+      name: dOption
+    startDialogue:
+      name: startDialogue
+    initDialogue:
+      name: initDialogue
+    continueDialogue:
+      name: continueDialogue
+    Dialogue:
+      name: Dialogue
+    setBar:
+      name: setBar
+    dialog:
+      name: dialog
+      container: true
+    dialogclose:
+      name: dialogclose
+    addItem:
+      name: addItem
+    eatButton:
+      name: eatButton
+    equipButton:
+      name: equipButton
+    setButtonName:
+      name: setButtonName
+    calculateStats:
+      name: calculateStats
+    unequip:
+      name: unequip
+    on:
+      name: on
+      container: true
+    SetShop:
+      name: SetShop
+    sellItem:
+      name: sellItem
+    buyItem:
+      name: buyItem
+    consumeItem:
+      name: consumeItem
+    equipItem:
+      name: equipItem
+    readBook:
+      name: readBook
+    setShop:
+      name: setShop
+    setChest:
+      name: setChest
+    takeChest:
+      name: takeChest
+    placeChest:
+      name: placeChest
+    takeAllChest:
+      name: takeAllChest
+    date:
+      name: date
+    time12hr:
+      name: time12hr
+    time24hr:
+      name: time24hr
+    adddays:
+      name: adddays
+    addStoryParagraph:
+      name: addStoryParagraph
+    addNote:
+      name: addNote
+    refreshNotesList:
+      name: refreshNotesList
+    gotoLink:
+      name: gotoLink
+    passage:
+      name: passage
+    leavePassage:
+      name: leavePassage
+    leave:
+      name: leave
+    ibutton:
+      name: ibutton
+      container: true

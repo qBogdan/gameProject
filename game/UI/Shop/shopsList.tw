@@ -1,0 +1,16 @@
+:: shopsList 
+
+<<set $shopList to [
+{
+name: "Market",
+items: ["Spiced Wine", "Spiced Wine", "Spiced Wine", "Spiced Wine", "Spiced Wine", "Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom","Mushroom", "Leather Armor"]
+},
+{
+name: "Smith",
+items: ["Leather", "Leather", "Glass", "note1", "Straight Arrow"]
+},
+{
+name: "random",
+items: []
+}
+]>>

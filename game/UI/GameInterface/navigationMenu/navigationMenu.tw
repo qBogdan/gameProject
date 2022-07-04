@@ -1,0 +1,8 @@
+:: navigationMenu
+
+
+<div class="navigationMenuButton" data-window="inventory" data-button-active="false">Inventory</div>
+<div class="navigationMenuButton" data-window="character" data-button-active="false">Character</div>
+<div class="navigationMenuButton" data-window="diary"     data-button-active="false">Diary</div>
+<div class="navigationMenuButton" data-window="map"       data-button-active="false">Map</div>
+<div class="navigationMenuButton" data-window="close"     data-button-active="false">Close</div>

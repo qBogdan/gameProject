@@ -1,0 +1,34 @@
+
+:: MarketDistrict [nobr]
+
+    <<leave "Town Square" "TownSquare">>
+    <<leave "Docks" "Docks">> 
+
+    <<passage "Talk to kid" "kid3">>
+    <<passage "Visit stand 1" "stand1">>
+    <<passage "Visit stand 2" "stand2">>
+    <<passage "Visit stand 3" "stand3">>
+
+
+:: kid3 
+
+    <<passage "Leave" "MarketDistrict">>
+
+:: stand1
+
+    <<passage "Leave" "MarketDistrict">>
+    <<button "browse">>
+    
+        <<run $shop.openShop('random', 20)>>
+
+    <</button>>
+
+    
+
+:: stand2
+
+    <<passage "Leave" "MarketDistrict">>
+
+:: stand3
+
+    <<passage "Leave" "MarketDistrict">>

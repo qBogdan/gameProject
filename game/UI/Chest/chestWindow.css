@@ -1,0 +1,48 @@
+#chest {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chestContainer {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.chestWrap {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    transition: .5s ease-in-out;
+}
+
+.chestSwitch {
+top: -100%;
+}
+
+#chestWindow {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    transition: .5s ease-in-out;
+} 
+
+#chestWindow .inventoryCell {
+    background-color: rgb(125, 163, 163);
+}
+
+#chestWindow::-webkit-scrollbar {
+    display: none;
+}
+
+.closeChest, .switchChest, .takeAll, .placeAll {
+    padding: 1rem;
+    background-color: aqua;
+    cursor: pointer;
+}

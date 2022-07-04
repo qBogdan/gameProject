@@ -1,0 +1,16 @@
+:: Beach [nobr]
+
+<<passage "Sea" "Sea">>
+<<passage "kid 1" "kid1">>
+
+<br>
+<<leave "Docks" "Docks">>
+<<leave "Shore Cave" "ShoreCave">>
+
+:: Sea 
+
+<<passage "Back" "Beach">>
+
+:: kid1 
+
+<<passage "Back" "Beach">>

@@ -1,0 +1,29 @@
+.joystickContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.joystickBase {
+    width: 10rem; height: 10rem;
+    
+    background-image: radial-gradient(transparent, #499);
+    
+    border: 0.15rem solid #444;
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.stick {
+  position: relative;
+  
+  width: 5rem; height: 5rem;
+  
+  background-image: radial-gradient(#555, #444);
+  
+  border: 0.15rem solid white;
+  border-radius: 50%;
+}

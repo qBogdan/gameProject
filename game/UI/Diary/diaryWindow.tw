@@ -1,0 +1,58 @@
+
+
+:: diaryWindow
+
+<div class="diarySection storySection">
+            <div class="title" data-body="story" >Story</div>
+            <div class="body story diaryOpen"  ></div>
+        </div>
+        <div class="diarySection booksSection">
+            <div class="title" data-body="books" >Books</div>
+            <div class="body books" ></div>
+        </div>
+        <div class="diarySection notesSection">
+            <div class="title" data-body="notes" >Notes</div>
+            <div class="body notes" >
+                <button class="addNote">add new note</button>
+                <div class="noteContent"></div>
+            </div>
+        </div>
+        <div class="diarySection" >
+            <div class="titleEnd" ></div>
+        </div>
+
+
+:: readBook
+
+$thisItem.title
+
+$thisItem.content
+
+<<button "close">>
+    <<dialogclose>>
+<</button>>
+
+:: addNote 
+
+<<timed 0s>>
+<<if $noteOption === "add">>
+<<run document.querySelector('.noteInput').value = "">>
+<<elseif $noteOption === "edit">>    
+<<run document.querySelector('.noteInput').value = State.variables.diary.notes[State.variables.diary.noteIndex]>>
+<</if>>
+     
+<</timed>>
+
+
+<div class="noteWindow">
+<input type="text" class="noteInput" value="" name="noteInput">
+<<button "Done">>
+<<if $noteOption === "add">>
+<<run State.variables.diary.addNote()>>
+<<elseif $noteOption === "edit">>    
+<<run State.variables.diary.editNote()>>
+<</if>>
+    
+<</button>>
+<<button "cancel">><<dialogclose>><</button>>
+</div>

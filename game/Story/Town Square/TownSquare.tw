@@ -1,0 +1,26 @@
+:: TownSquare [nobr]
+
+<<passage "Inspect Monument" "Monument">>
+<<passage "Talk to child" "Kid5">>
+<<passage "Sit on Bench" "TSBench">>
+<br>
+<<leave "Lower Town" "LowerTown">>
+<<leave "Upper Town" "UpperTown">>
+<<leave "Market District" "MarketDistrict">>
+
+:: Monument
+
+<<passage "leave" "TownSquare">>
+
+:: Kid5
+
+<<passage "leave" "TownSquare">>
+
+:: TSBench 
+
+<<passage "leave" "TownSquare">>
+
+:: test1
+
+you're here
+<<back >>

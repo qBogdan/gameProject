@@ -1,0 +1,43 @@
+
+:: LowerTown [nobr]
+
+
+<<passage "Alley" "LTAlley">>
+<<passage "Player House" "PlayerHouse">>
+<<passage "kid2" "kid2">>
+<<passage "BlackSmith" "Blacksmith">>
+<br>
+<<leave "Town Square" "TownSquare">>
+
+:: LTAlley
+
+<<passage "Leave" "LowerTown">>
+<<leave "Forest of the Dead" "FOTD">>
+
+:: PlayerHouse
+
+<<passage "Leave" "LowerTown">>
+
+:: kid2
+
+<<passage "Leave" "LowerTown">>
+
+:: Blacksmith [nobr]
+
+<<passage "Anvil" "Anvil">>
+<<passage "Forge" "Forge">>
+<<passage "Owner" "BlacksmithOwner">>
+
+<<passage "Leave" "LowerTown">>
+
+:: Anvil
+
+<<passage "Leave" "Blacksmith">>
+
+:: Forge 
+
+<<passage "Leave" "Blacksmith">>
+
+:: BlacksmithOwner 
+
+<<passage "Leave" "Blacksmith">>

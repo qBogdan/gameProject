@@ -1,0 +1,39 @@
+
+:: ShoreCave
+
+<<passage "Secret Stash" "SCStash">>
+<<passage "Dark Entry" "SCEntry">>
+<br>
+<<leave "Beach" "Beach">>
+
+
+:: SCStash
+    "chest"
+    <<passage "back" "ShoreCave">>
+
+:: SCEntry
+    "enter cave if player has light"
+    <<passage "back" "ShoreCave">>
+
+/*  :: cavePassage [nobr Shore_Cave]
+
+<<button "enter cave" "insideCave">><</button>>
+
+
+:: insideCave [nobr Inside_cave]
+
+<div class="shoreCave"></div>
+
+<div id="shoreCaveJoystick" class="joystickContainer"> 
+</div>
+
+<<timed 0s>>
+    <<run 
+        $cave.create($shoreCave);
+        joystick.create('shoreCaveJoystick')
+    >>
+<</timed>>
+
+
+    
+    */

@@ -1,0 +1,19 @@
+:: lowerUi [nobr]
+
+<div class="navigationButton">Inv</div>
+
+            <div class="statBars">
+                <div class="bar">
+                    <div class="healthValue">$player.health</div>
+                    <div class="healthBar">
+                        <div class="healthProgress" ></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="staminaValue">$player.stamina</div>
+                    <div class="staminaBar">
+                        <div class="staminaProgress"  ></div>
+                    </div>
+                </div>
+            </div> 

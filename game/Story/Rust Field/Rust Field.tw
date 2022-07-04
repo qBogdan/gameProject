@@ -1,0 +1,15 @@
+
+:: RustField [nobr] 
+
+<<passage "Mouse" "RFMouse">>
+<<passage "Look at field" "RFField">>
+<<passage "Look at Plants" "RFPlants">>
+<br>
+<<leave "Forest of the Dead" "FOTD">>
+
+:: RFField 
+    <<passage "Back" "RustField">>
+:: RFMouse
+<<passage "Back" "RustField">>
+:: RFPlants
+<<passage "Back" "RustField">>

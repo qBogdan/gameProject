@@ -1,0 +1,22 @@
+
+:: RefugeeCamp [nobr]
+
+
+<<passage "plant wagon" "PlantWagon">>
+<<passage "Camp fire" "CampFire">>
+<<passage "Animals" "CampAnimals">>
+
+<br>
+<<leave "Forest of the Dead" "FOTD">>
+
+:: PlantWagon 
+
+<<passage "back" "RefugeeCamp">>
+
+:: CampFire 
+
+<<passage "back" "RefugeeCamp">>
+
+:: CampAnimals
+
+<<passage "back" "RefugeeCamp">>

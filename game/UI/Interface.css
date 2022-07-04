@@ -1,0 +1,36 @@
+:root {
+    --upper-ui-height: 5rem;
+    --lower-ui-height: 6rem;
+    --navigation-bar-height: 7rem;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #808080;
+    position: relative;
+}
+
+.displayNone {
+    display: none;
+}
+
+.blurWindow {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.397);
+    z-index: 5;
+    top: 0;
+    left: 0;
+}

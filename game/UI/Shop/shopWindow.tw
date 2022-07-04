@@ -1,0 +1,14 @@
+:: shopWindow
+
+<div class="shopContainer">
+            <div class="shopWrap">
+                <div id="shopWindow"></div>
+                <div class="inventoryWindow"></div>
+            </div>
+        </div>
+
+        <div class="shopButtons">
+            <div class="gold">0</div>
+            <div class="switchShop">switch</div>
+            <div class="closeShop">close</div>
+        </div>

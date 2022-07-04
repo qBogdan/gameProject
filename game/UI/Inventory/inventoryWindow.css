@@ -1,0 +1,77 @@
+#inventory {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inventoryWindow {
+    width: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+}   
+.inventoryWindow::-webkit-scrollbar {
+    display: none;
+}
+
+
+.inventoryCell {
+    width: 25%;
+    aspect-ratio: 1;
+    background-color: rgb(145, 145, 168);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgb(71, 71, 71);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.336);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventoryCell img {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.cellStack {
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    width: 25%;
+    aspect-ratio: 1;
+    background-color: darkslategrey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40%;
+    z-index: 2;
+    border: 1px solid wheat;
+}
+
+.displayNone {
+    display: none;
+}
+
+.gold {
+    height: 4rem;
+    aspect-ratio: 1;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.inventoryInfo, .shopButtons, .chestButtons {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}

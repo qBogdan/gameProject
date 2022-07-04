@@ -1,0 +1,13 @@
+:: characterWindow [nobr]
+
+<div class="characterEquipment">
+        </div> 
+
+        <div class="characterStats">
+            <p class="attributeName">STR:</p><p class="attribute">0</p> <p class="bonus">0</p>
+            <p class="attributeName">AGL:</p><p class="attribute">0</p> <p class="bonus">0</p>
+            <p class="attributeName">DXT:</p><p class="attribute">0</p> <p class="bonus">0</p>
+            <p class="attributeName">INT:</p><p class="attribute">0</p> <p class="bonus">0</p>
+            <p class="attributeName">CHR:</p><p class="attribute">0</p> <p class="bonus">0</p>
+            <p class="attributeName">STL:</p><p class="attribute">0</p> <p class="bonus">0</p>
+        </div>

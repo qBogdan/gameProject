@@ -1,0 +1,104 @@
+#diary {
+    width: 100%;
+}
+
+.diarySection {
+    width: 100%;
+}
+
+.diarySection .title,.titleEnd {
+    width: 100%;
+    aspect-ratio: 10 / 1.5;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    border-radius: 999px;
+    cursor: pointer;
+    border: solid 3px palevioletred;
+}
+.body {
+    width: 90%;
+    height: 0rem;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    transition: .5s linear;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+.diaryOpen {
+    height: 28rem;
+}
+
+.bookEntry {
+    margin: .2rem;
+    width: 90%;
+    height: 2rem;
+    background-color: brown;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.addNote {
+    width: 90%;
+    padding: .5rem;
+    background-color: aqua;
+    border: none;
+    border-radius: .5rem;
+    color: black;
+}
+.noteContent{
+    width: 90%;
+    height: auto;
+}
+.noteEntry {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 5rem;
+    padding: .5rem;
+    position: relative;
+    background-color: rgb(206, 159, 90);
+}
+.noteEntry p {
+    max-width: 70%;
+}
+
+.editNote, .deleteNote {
+    position: absolute;
+    right: 0;
+}
+
+.editNote {
+    top: 0;
+}
+
+.deleteNote {
+    bottom: 0;
+}
+
+.noteWindow {
+    height: 50vh;
+    width: 80vw;
+    background-color: whitesmoke;
+}
+
+.noteInput {
+    background-color: white;
+    color: black;
+}
+
+input:not(:disabled):hover, input:not(:disabled){
+    background-color: white;
+}

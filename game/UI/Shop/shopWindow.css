@@ -1,0 +1,49 @@
+#shop {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.shopContainer {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.shopWrap {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    transition: .5s ease-in-out;
+}
+
+.shopSwitch {
+top: -100%;
+}
+
+#shopWindow {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    transition: .5s ease-in-out;
+} 
+
+#shopWindow .inventoryCell {
+    background-color: rgb(125, 163, 163);
+}
+
+#shopWindow::-webkit-scrollbar {
+    display: none;
+}
+
+.closeShop, .switchShop {
+    padding: 1rem;
+    background-color: aqua;
+    cursor: pointer;
+}

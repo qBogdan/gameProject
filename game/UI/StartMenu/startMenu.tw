@@ -1,0 +1,80 @@
+:: Start [nobr]
+
+<div class="startMenu">
+    <<button "New Game" "Contract">>
+        <<run 
+            $map.playerLocation = "town";
+            $map.resetLocations()
+        >>
+    <</button>><br>
+
+    <<button "Test" "TownSquare">><</button>> <br>
+
+    <<button "Continue">>
+    <<run 
+        Save.slots.load(0);
+        updateGame();
+        $map.updateMap();
+        >>
+    <</button>>
+</div>
+
+
+:: Contract [nobr]
+
+The man in front of you measures you from all angles for 2 minutes now.
+He scratches hes beard one last time and the sais: 
+
+"Are you sure kid? We really need the extra hand, but working in the mine is no easy task, and your... phisique... is not that promising if you understand me"
+
+<<button "I'm sure that you'll find a right place for me">>
+<<replace "#acceptJob">>
+"Eh, I guess somoene should bring water to the actual workers. OK, you're in. You just have to fill up this paper first"
+<<button "Fill paper" "Fill">><</button>>
+<</replace>>
+<</button>>
+
+<span id="acceptJob"></span>
+
+:: Fill [nobr]
+
+
+Name : <input id='playerNameInput' type="text">
+Surname: Yalteky <br><br>
+Age: 17 <br>
+<br>
+<span id="avaiblePoints"></span>
+<br>
+<div class="charLine">
+Strength: <button class="charCreation" data-char-function="minus" data-char-atr="Strength"> - </button> <span id="displayStrength"> $player.attributes.Strength </span><button class="charCreation " data-char-function="plus" data-char-atr="Strength"> + </button>
+</div>
+<div class="charLine">
+Agility: <button class="charCreation" data-char-function="minus" data-char-atr="Agility">  - </button> <span id="displayAgility"> $player.attributes.Agility   </span><button class="charCreation " data-char-function="plus" data-char-atr="Agility"> + </button>
+</div>
+<div class="charLine">
+Dexterity: <button class="charCreation" data-char-function="minus" data-char-atr="Dexterity"> - </button> <span id="displayDexterity"> $player.attributes.Dexterity </span><button class="charCreation " data-char-function="plus" data-char-atr="Dexterity"> + </button>
+</div>
+<div class="charLine">
+Intelligence: <button class="charCreation" data-char-function="minus" data-char-atr="Intelligence"> - </button> <span id="displayIntelligence"> $player.attributes.Intelligence </span><button class="charCreation " data-char-function="plus" data-char-atr="Intelligence"> + </button>
+</div>
+<div class="charLine">
+Charisma:  <button class="charCreation" data-char-function="minus" data-char-atr="Charisma"> - </button> <span id="displayCharisma"> $player.attributes.Charisma </span><button class="charCreation " data-char-function="plus" data-char-atr="Charisma"> + </button>
+</div>
+<div class="charLine">
+Stealth: <button class="charCreation" data-char-function="minus" data-char-atr="Stealth"> - </button> <span id="displayStealth"> $player.attributes.Stealth </span><button class="charCreation " data-char-function="plus" data-char-atr="Stealth"> + </button>
+</div>
+
+<<button "Sign paper">>
+    <<run setup.signPaper()>>
+<</button>> 
+
+<<done>>
+    <<run setup.charCreation()>>    
+<</done>>
+
+:: Sign 
+
+just as the pen was about to touch the paper, it flies up
+
+
+<<button "town Center" "TownSquare">><</button>>

@@ -1,0 +1,25 @@
+:: upperUi [nobr]
+
+    <div class="upperUiText">
+        <p  class="topText"><<print tags()[0]>></p>
+        <p  class="topText upperUiDate"><<date>></p>
+    </div>
+    
+
+    <div class="escButton">
+        <<button "menu">>
+            <<dialog>>
+                <<include "escMenu">>
+            <</dialog>>
+        <</button>> 
+    </div>
+
+:: escMenu [nobr]
+
+<div id="escMenu">
+    <<button "title screen" "Start">><<dialogclose>><</button>><br>
+    <<button "save">><<run Save.slots.save(0)>><<dialogclose>><</button>><br>
+    <<button "restart" >><<run  Engine.restart()>><</button>><br>
+    <<back >><br>
+    <<button "Cancel">><<dialogclose>><</button>><br>
+</div>

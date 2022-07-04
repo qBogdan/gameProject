@@ -1,0 +1,21 @@
+:: Manor [nobr]
+
+<<passage "Manor Pathway" "ManorPathway">>
+<br>
+<<leave "Upper Town" "UpperTown">>
+
+:: ManorPathway [nobr]
+
+<<passage "Manor Building" "ManorBuilding">>
+<<passage "Garden" "ManorGarden">>
+<<passage "Employees Shacks" "ManorShacks">>
+<<passage "Return" "Manor">>
+
+:: ManorBuilding
+    <<passage "Go back" "ManorPathway">>
+:: ManorGarden
+    <<passage "Go back" "ManorPathway">>
+    <<leave "Copper Mine" "CopperMine">>
+    <<leave "Forest of the Dead" "FOTD">>
+:: ManorShacks
+    <<passage "Go back" "ManorPathway">>

@@ -1,0 +1,62 @@
+#gameWindow {
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
+    max-width: 550px;
+    background-color: rgb(187, 187, 187);
+    position: relative;
+    color: black;
+    overflow: hidden;
+}
+
+.gameInterface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: thistle;
+    z-index: 1;
+}
+
+.textUi{
+    position: absolute;
+    width: 100%;
+    height: calc(100%-5rem);
+    left: 0;
+    top: 5rem;
+}
+
+.passage,
+ #passages  {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .passage {
+     padding: 1rem;
+ }
+
+ .verticalSlide, 
+ .horizontalSlide {
+    position: absolute; 
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    z-index: 5;
+    width: 90%;
+    height: calc(95% - var(--navigation-bar-height) );
+    transition: .5s ease-in-out;
+
+ } 
+
+ .verticalSlideHidden {
+     top: -100vh;
+ }
+
+ .horizontalSlideHidden {
+     left: -100vw;
+ }

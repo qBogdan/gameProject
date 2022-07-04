@@ -1,0 +1,17 @@
+
+:: gameWidgets [widget nobr]
+
+<<widget "passage">>
+    <div class="passageLink">
+        <<button $args[0] $args[1]>>
+            /* << another widget>> */
+        <</button>>
+    </div>
+<</widget>>
+
+<<widget "leave">>
+    <div class="leavePassage">
+        <<button `'Go to ' + $args[0]` $args[1]>>
+        <</button>> 
+    </div>
+<</widget>>

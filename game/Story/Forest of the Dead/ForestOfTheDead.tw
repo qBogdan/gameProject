@@ -1,0 +1,60 @@
+
+:: FOTD [nobr] 
+
+<<passage "East Alley" "EAlley">>
+<<passage "North Alley" "NAlley">>
+<<passage "West Alley" "WAlley">>
+<br>
+<<leave "Refugee Camp" "RefugeeCamp">>
+<<leave "Manore" "ManorGarden">>
+
+
+<br>
+<<leave "Lower Town" "LowerTown">>
+
+:: EAlley
+    <<passage "Tree" "RTree1">>
+    <<passage "Tree" "RTree2">>
+    <<passage "Go back" "FOTD">>
+    <br>
+<<leave "Refugee Camp" "RefugeeCamp">>
+
+:: NAlley
+    <<passage "Tree" "RTree3">>
+    <<passage "Tree" "RTree4">>
+     <<passage "Tree" "RTree5">>
+    <<passage "Go back" "FOTD">>
+    <br>
+<<leave "Rust Field" "RustField">>
+
+
+:: WAlley
+
+    <<passage "Tree" "RTree6">>
+    <<passage "Tree" "RTree7">>
+    <<passage "Tree" "MotherTree">>
+    <<passage "Go back" "FOTD">>
+
+:: RTree1 
+<<passage "Back" "EAlley">>
+
+:: RTree2
+<<passage "Back" "EAlley">>
+
+:: RTree3 
+<<passage "Back" "NAlley">>
+
+:: MotherTree
+<<passage "Back" "WAlley">>
+
+:: RTree4 
+<<passage "Back" "NAlley">>
+
+:: RTree5 
+<<passage "Back" "NAlley">>
+
+:: RTree6 
+<<passage "Back" "WAlley">>
+
+:: RTree7 
+<<passage "Back" "WAlley">>

@@ -1,0 +1,65 @@
+:: StoryInterface
+
+<!-- game window inside body -->
+
+<div id="gameWindow"> 
+
+<!-- game window components -->
+    <div class="gameInterface">
+        <div class = "upperUi"  data-passage = "upperUi"></div>
+       
+        <div class = "textUi"><div id="passages"></div></div>
+
+        <div class = "lowerUi" data-init-passage = "lowerUi"></div>
+    </div>
+
+<!-- The 4 navigation tabs -->
+    <div class = "navigationMenu navigationMenuHidden"                    data-init-Passage = "navigationMenu">
+        
+    </div>
+
+<!-- window that blocks story passage when menu tabs are open -->
+    <div class="blurWindow displayNone"></div>
+
+<!-- rails for tabs to slide - decorative purpose only -->
+    <div id = "rails"                                                     data-passage = "rails"></div>
+    
+<!-- inventory Window -->    
+    <div id = "inventory"   class="verticalSlide verticalSlideHidden"     data-active='false' data-init-passage = "inventoryWindow"></div>
+
+<!-- Character Page -->
+    <div id = "character"   class="verticalSlide verticalSlideHidden"     data-active='false' data-init-passage = "characterWindow">
+
+        
+    </div>
+<!-- Diary Window -->    
+    <div id = "diary"       class="verticalSlide verticalSlideHidden"     data-active='false' data-init-passage = "diaryWindow">
+        
+    </div>
+
+<!-- Map Window  -->    
+    <div id = "map"         class="verticalSlide verticalSlideHidden"     data-active='false' data-init-passage = "mapWindow">
+        
+    </div>
+
+<!-- Shop Window -->
+    <div id = "shop"        class="horizontalSlide horizontalSlideHidden" data-active='false' data-init-passage = "shopWindow">
+        
+    </div>
+
+<!-- Chest Window -->    
+    <div id = "chest"       class="horizontalSlide horizontalSlideHidden" data-active='false' data-init-passage = "chestWindow">
+        
+    </div>
+
+<!-- Choice Window
+    <div id="checkWindow" data-init-passage = "checkWindow">
+        <div class="checkContainer">
+            <div class="arrow"></div>
+            <div class="choice1 choiceBubble">1</div>
+            <div class="choice2 choiceBubble">2</div>
+            <div class="choice3 choiceBubble">3</div>
+        </div>        
+    </div>  -->
+
+</div>

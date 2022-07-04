@@ -1,0 +1,92 @@
+.lowerUi {
+    margin-left: 1rem;
+    width: 100%;
+    height: var(--lower-ui-height);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    transition: .3s ease-in-out;
+}
+
+.lowerUiHidden {
+    bottom: -6rem;
+}
+
+.navigationButton {
+    width: 4rem;
+    height: 4rem;
+    background-color: violet;
+    border-radius: 1rem;
+    border: solid .3rem blueviolet;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+
+
+.navigationButton:hover {
+    border-radius: 50%;
+}
+
+.bar {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.statBars {
+    height: 4rem;
+    width: calc(100% - 6rem);
+   
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.healthValue, .staminaValue {
+    width: 2rem;
+    height: 2rem;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1rem;
+    border-radius: 50%;
+}
+
+.healthBar, .healthValue {
+    border: solid .2rem red;
+}
+
+.staminaBar, .staminaValue {
+    border: solid .2rem green;
+}
+
+.healthBar, .staminaBar {
+    width: calc(90% - 2rem);
+    height: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.healthProgress {
+    position: absolute;
+    height: 100%;
+    background-color: rgb(252, 107, 107);
+    border-radius: 1rem;
+    transition: .3s ease-in-out;
+}
+
+.staminaProgress {
+    position: absolute;
+    height: 100%;
+    background-color: rgb(0, 172, 0);
+    border-radius: 1rem;
+    transition: .3s ease-in-out;
+}

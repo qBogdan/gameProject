@@ -1,0 +1,228 @@
+:: GameItems
+
+<<set $gameItems to [
+  
+/*//////////////// Food ///////////////
+/////////////////////////////////////
+
+{
+    name: "",
+    category: "consum",
+    tags: ["heal", "stamina", "eat", "drink"],
+    rarity: 0, // 0 = common, 5 = legendary
+    cost: 0,
+    attributes: {
+        heal: 0,
+        rest: 0,
+    },
+    description: "",
+    img: ""
+},*/
+{
+    name: "Mushroom",
+    stack: 1,
+    category: "consum",
+    tags: ["heal", "stamina", "eat"],
+    rarity: 1, // 0 = common, 5 = legendary
+    cost: 3,
+    attributes: {
+        heal: 3,
+        rest: 2
+    },
+    description: "Fresh forest mushrooms",
+    img: "https://i.ibb.co/cChFh5R/Layer-7.png"
+},
+{
+    name: "Spiced Wine",
+    stack: 1,
+    category: "consum",
+    tags: ["heal", "drink"],
+    rarity: 1, // 0 = common, 5 = legendary
+    cost: 5,
+    attributes: {
+        heal: 5
+    },
+    description: "Heart warming spiced wine",
+    img: "https://i.ibb.co/SJP5yNw/Group-1.png"
+},
+
+/*//////////////// Equipmemt ///////////////
+//////////////////////////////////////////
+
+{ 
+    name: "",
+    stack: 1,
+    category: "equipment",
+    tags: [1], // 0 - head,1 - body ,2 - feed ,3 - accsesory ,4-tool first tag should be body part
+    rarity: 0, // 0 = common, 5 = legendary
+    cost: 0,
+    attributes: {
+        Strength :     0,
+        Agility:       0,
+        Dexterity:     0,
+        Intelligence : 0,
+        Charisma :     0,
+        Stealth :      0,
+    },
+    description: "",
+    img: ""
+},*/
+
+    {
+        name: "Feather Hat",
+        stack: 1,
+        category: "equipment",
+        tags: [0], 
+        rarity: 1,
+        cost: 10,
+        attributes: {
+            Agility : 4,
+            Dexterity : 3
+        },
+        description : "nice hat",
+        img: "http://print-design-mangalia.ro/bogdan/img/Exposure%208%20copy.png"        
+    },
+    {
+        name: "Aristocratic Shirt",
+        stack: 1,
+        category: "equipment",
+        tags: [1],
+        rarity: 2,
+        cost: 15,
+        attributes : {
+            Charisma: 2,
+            Intelligence: 1
+        },
+        description : "Imported leather jacket.",
+        img: "http://print-design-mangalia.ro/bogdan/img/Layer%2040.png"
+    },
+     {
+        name: "Leather Armor",
+        stack: 1,
+        category: "equipment",
+        tags: [1],
+        rarity: 2,
+        cost: 20,
+        attributes : {
+            Strength : 5
+        },
+        description : "Hardened leather aromor.",
+        img: "http://print-design-mangalia.ro/bogdan/img/Hue_Saturation%202.png"
+    },
+
+/*//////////////// Book ///////////////
+/////////////////////////////////////
+
+{
+    name: "",
+    stack: 1,
+    category: 'book',
+    tags: ['lore', "skill"], // skill tags for skill points books
+    rarity: 0, // 0 = common, 5 = legendary
+    attributes: {
+        Strength :     0,
+        Agility:       0,
+        Dexterity:     0,
+        Intelligence : 0,
+        Charisma :     0,
+        Stealth :      0,
+    },
+    cost: 0,
+    title: '',
+    content: '',
+    img: ''
+},*/
+{
+    name: "Straight Arrow",
+    stack: 1,
+    category: 'book',
+    tags: ['skill'],
+    rarity: 3,
+    cost: 20,
+    attributes: {
+        Dexterity: 1
+    },
+    title: "Straight Arrow",
+    content: "Learn how to use that bow you keep hanging on the wall",
+    img: 'http://print-design-mangalia.ro/bogdan/img/Layer%209.png'
+},
+{
+    name: "note1",
+    stack: 1,
+    category: 'book',
+    tags: [],
+    rarity: 0,
+    cost: 0,
+    title: "Pickaxe Idea",
+    content: "What if we stick diamondsat the end of the pickaxe so we can mine faster ?",
+    img: 'http://print-design-mangalia.ro/bogdan/img/Layer%2010.png'
+},
+
+/*//////////////// Resouces ///////////////
+/////////////////////////////////////////
+
+{
+  name: '',
+  stack: 1,
+  category: 'resource',
+  rarity: 0, // 0 = common, 5 = legendary
+  cost: 0,
+  img: 0
+}*/
+
+    {
+        name: 'Leather',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 1,
+        cost: 2,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+    {
+        name: 'Copper',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 1,
+        cost: 3,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+    {
+        name: 'Iron',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 2,
+        cost: 5,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+    {
+        name: 'Glass',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 3,
+        cost: 7,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+    {
+        name: 'Gold',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 4,
+        cost: 10,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+    {
+        name: 'Fine Parts',
+        stack: 1,
+        tags: [],
+        category: 'resources',
+        rarity: 5,
+        cost: 10,
+        img: 'https://i.ibb.co/CtqGdMY/imagine-2022-02-05-190246.png'
+    },
+
+]>>

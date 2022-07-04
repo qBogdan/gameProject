@@ -1,0 +1,33 @@
+.caveContainer {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+
+
+.cavePicture {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    transition: .3s ease-in-out;
+}
+
+.playerTile {
+    background-color: beige;
+    width: 20%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.caveEventWindow {
+    height: 70%;
+    aspect-ratio: 1/2;
+    color: black;
+    background-color: bisque;
+}

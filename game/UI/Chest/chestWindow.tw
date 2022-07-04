@@ -1,0 +1,15 @@
+:: chestWindow
+
+<div class="chestContainer">
+            <div class="chestWrap">
+                <div id="chestWindow"></div>
+                <div class="inventoryWindow"></div>
+            </div>
+        </div>
+
+        <div class="chestButtons">
+            <div class="takeAll">Take all</div>
+            <div class="placeAll">Place all</div>
+            <div class="switchChest">switch</div>
+            <div class="closeChest">close</div>
+        </div>

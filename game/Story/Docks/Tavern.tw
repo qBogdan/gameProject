@@ -1,0 +1,17 @@
+:: Tavern [nobr]
+
+<<passage "Taver Keeper" "TavernKeeper">>
+<<passage "Drunk Man" "DrunkMan">>
+<<passage "Peple" "People">>
+<<passage "Strange Character" "TamerNPC">>
+
+<<passage "Exit" "Docks">>
+
+:: TavernKeeper
+    <<passage "Leave" "Tavern">>
+:: DrunkMan
+    <<passage "Leave" "Tavern">>
+:: People 
+    <<passage "Leave" "Tavern">>
+:: TamerNPC
+    <<passage "Leave" "Tavern">>

@@ -1,0 +1,60 @@
+:: StoryData
+{
+    "ifid": "47A3C6A0-A608-4E8E-AFC6-6337AC73C44B",
+    "format": "SugarCube",
+    "format-version": "2.35.0"
+}
+
+:: StoryTitle
+
+Untitled Game
+
+:: StoryInit 
+
+<<include "Calendar">>
+<<include "GameItems">>
+<<include "shopsList">>
+<<include "chestList">>
+<<include "caveList">>
+
+<<set $player = new Character({
+  name: 'Bogdan',
+  maxHealth: 22,
+  maxStamina: 20
+})>>
+
+<<set $inventory = new Inventory({
+  type: 'player',
+  size: 20
+})>>
+
+<<set $shop = new Shop({
+  type: 'shop',
+  size: 20
+})>>
+
+<<set $chest = new Chest({
+  type: 'chest',
+  size: 20
+})>>
+
+<<set $diary = new Diary({
+  story: ["This is a testing enviroment"],
+  books: [],
+  notes: ['You can add, edit and delete notes here']
+})>>
+
+<<set $map = new Map({
+  playerLocation: "town"
+})>>
+
+<<set $cave = new Cave({
+  start: 0
+})>>
+
+<<script>>
+updateGame();
+setup.UI.addEvents();
+State.variables.diary.addEvents();
+State.variables.map.addEvents();
+<</script>>

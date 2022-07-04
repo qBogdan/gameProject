@@ -1,0 +1,18 @@
+#ui-overlay {
+    background-color: rgba(0, 0, 0, 0.534);
+}
+
+#ui-dialog-titlebar {
+    display: none;
+    
+}
+
+#ui-dialog-body, .macro-dialog {
+    border: none;
+    background-color: transparent;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,8 @@
+.charCreation {
+    height: 2rem;
+   width: 2rem;
+   border-radius: .5rem;
+   border: solid 2px brown;
+   background-color: transparent;
+   color: brown;
+}

@@ -1,0 +1,29 @@
+#map {
+    background-color: steelblue;
+    overflow: auto;
+}
+
+.svgMap {
+    height: 100%;
+}
+
+.displayNone {
+    display: none;
+}
+
+.unselectable{
+    filter: grayscale();
+    opacity: .8;
+    pointer-events: none;
+}
+
+.travelWindow {
+    width: 80%;
+    aspect-ratio: 1;
+    background-color: aliceblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

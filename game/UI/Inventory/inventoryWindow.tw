@@ -1,0 +1,24 @@
+:: inventoryWindow [nobr]
+
+
+<div class="inventoryWindow"></div>
+            <div class="inventoryInfo">
+                <div class="gold">0</div>
+                <div class="statBars">
+
+<!-- health and stamina bars -->
+                    <div class="bar">
+                        <div class="healthValue">$player.health</div>
+                        <div class="healthBar">
+                            <div class="healthProgress" ></div>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="staminaValue">$player.stamina</div>
+                        <div class="staminaBar">
+                            <div class="staminaProgress"  ></div>
+                    </div>
+                </div>
+            </div> 
+        </div>

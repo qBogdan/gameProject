@@ -1,0 +1,21 @@
+:: UpperTown [nobr]
+
+<<passage "Look at houses" "Houses">>
+<<passage "Talk to kid 4" "kid4">>
+<<passage "Guards Baracks" "GuardBaracks">>
+<<passage "School" "School">>
+<<passage "Shop" "UTShop">>
+<br>
+<<leave "Town Square" "TownSquare">>
+<<leave "Manor" "Manor">>
+
+:: Houses
+<<passage "Leave" "UpperTown">>
+:: kid4
+<<passage "Leave" "UpperTown">>
+:: GuardBaracks
+<<passage "Leave" "UpperTown">>
+:: School
+<<passage "Leave" "UpperTown">>
+:: UTShop
+<<passage "Leave" "UpperTown">>
