@@ -30,3 +30,20 @@
  .testButton {
      background-color: hotpink;
  }
+
+ /* -------------*/
+
+ .passageButton,
+ .dialogue,
+ .remove {
+    width: 100%;
+    padding: .5rem;
+    background-color: bisque;
+    margin:.5rem 0;
+    border-radius: .3rem;
+    cursor: pointer;
+ }
+
+ .visitedDialogue {
+    background-color: rgb(170, 170, 170);
+ }

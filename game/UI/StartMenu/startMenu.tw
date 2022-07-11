@@ -8,7 +8,8 @@
         >>
     <</button>><br>
 
-    <<button "Test" "TownSquare">><</button>> <br>
+    <<button "TownSquare" "TownSquare">><</button>> <br>
+    <<button "test" "TestArea">><</button>> <br>
 
     <<button "Continue">>
     <<run 
