@@ -17,7 +17,7 @@ Macro.add(['ibutton', 'ilink'], {
 
 		if (typeof this.args[0] === 'object') {
 			if (this.args[0].isImage) {
-				// Argument was in wiki image syntax.
+				// Argument was in wiki image syntax. 
 				const $image = jQuery(document.createElement('img'))
 					.attr('src', this.args[0].source)
 					.appendTo($link);

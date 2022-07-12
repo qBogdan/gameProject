@@ -28,7 +28,6 @@ Macro.add('dialoguebutton', {
         if (this.args.length === 0) {
             return this.error('Passage name not provided');
         }
-
         const button = document.createElement('div');
         button.classList.add('passageButton');
         button.innerText = this.payload[0].contents;
@@ -38,8 +37,10 @@ Macro.add('dialoguebutton', {
             e.target.classList.add('visitedDialogue')
             //Engine.play(passage)
         })
-        
+
         $(this.output).append(button);
+
+
     }
 })
 
@@ -54,12 +55,25 @@ Macro.add('removebutton', {
         const button = document.createElement('div');
         button.classList.add('passageButton');
         button.innerText = this.payload[0].contents;
+
+        if (condition) {
+            let btnNumber = State.variables.buttonsHistory.count + 1;
+            button.dataset.btnCount = btnNumber;
+            State.variables.buttonsHistory[`btn${btnNumber}`] = false;
+            State.variables.buttonsHistory.count++;
+        }
+
         let passage = this.args[0];
+        let thisBtn;
 
         button.addEventListener('click', e => {
+            thisBtn = State.variables.buttonsHistory['btn' + e.target.dataset.btnCount]
+            State.variables.buttonsHistory['btn' + e.target.dataset.btnCount] = true;
             e.target.remove()
         })
-        
-        $(this.output).append(button);
+
+        if (!thisBtn) {
+            $(this.output).append(button);
+        }
     }
 })

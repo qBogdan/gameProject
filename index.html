@@ -1205,7 +1205,6 @@ Macro.add('dialoguebutton', {
         if (this.args.length === 0) {
             return this.error('Passage name not provided');
         }
-
         const button = document.createElement('div');
         button.classList.add('passageButton');
         button.innerText = this.payload[0].contents;
@@ -1215,8 +1214,10 @@ Macro.add('dialoguebutton', {
             e.target.classList.add('visitedDialogue')
             //Engine.play(passage)
         })
-        
+
         $(this.output).append(button);
+
+
     }
 })
 
@@ -1231,13 +1232,26 @@ Macro.add('removebutton', {
         const button = document.createElement('div');
         button.classList.add('passageButton');
         button.innerText = this.payload[0].contents;
+
+        if (condition) {
+            let btnNumber = State.variables.buttonsHistory.count + 1;
+            button.dataset.btnCount = btnNumber;
+            State.variables.buttonsHistory[`btn${btnNumber}`] = false;
+            State.variables.buttonsHistory.count++;
+        }
+
         let passage = this.args[0];
+        let thisBtn;
 
         button.addEventListener('click', e => {
+            thisBtn = State.variables.buttonsHistory['btn' + e.target.dataset.btnCount]
+            State.variables.buttonsHistory['btn' + e.target.dataset.btnCount] = true;
             e.target.remove()
         })
-        
-        $(this.output).append(button);
+
+        if (!thisBtn) {
+            $(this.output).append(button);
+        }
     }
 })
 /* twine-user-script #3: "ibutton.js" */
@@ -1260,7 +1274,7 @@ Macro.add(['ibutton', 'ilink'], {
 
 		if (typeof this.args[0] === 'object') {
 			if (this.args[0].isImage) {
-				// Argument was in wiki image syntax.
+				// Argument was in wiki image syntax. 
 				const $image = jQuery(document.createElement('img'))
 					.attr('src', this.args[0].source)
 					.appendTo($link);
@@ -3250,7 +3264,11 @@ State.variables.map.addEvents();
 
 
     
-    */</tw-passagedata><tw-passagedata pid="76" name="TestArea" tags="nobr" position="725,975" size="100,100">&lt;div class=&quot;passageButton&quot;&gt;Change Passage&lt;/div&gt;
+    */</tw-passagedata><tw-passagedata pid="76" name="TestArea" tags="nobr" position="725,975" size="100,100">&lt;&lt;set $buttonsHistory to {
+    count: 0,
+}&gt;&gt;
+
+&lt;div class=&quot;passageButton&quot;&gt;Change Passage&lt;/div&gt;
 &lt;div class=&quot;dialogue&quot;&gt;This is a dialogue&lt;/div&gt;
 &lt;div class=&quot;remove&quot;&gt;This text will be removed&lt;/div&gt;
 

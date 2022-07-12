@@ -1,6 +1,10 @@
 
 :: TestArea [nobr] 
 
+<<set $buttonsHistory to {
+    count: 0,
+}>>
+
 <div class="passageButton">Change Passage</div>
 <div class="dialogue">This is a dialogue</div>
 <div class="remove">This text will be removed</div>
