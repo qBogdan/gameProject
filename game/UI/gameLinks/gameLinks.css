@@ -34,8 +34,8 @@
  /* -------------*/
 
  .passageButton,
- .dialogue,
- .remove {
+ .dialogueButton,
+ .removeButton {
     width: 100%;
     padding: .5rem;
     background-color: bisque;

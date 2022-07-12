@@ -1072,8 +1072,8 @@ top: -100%;
  /* -------------*/
 
  .passageButton,
- .dialogue,
- .remove {
+ .dialogueButton,
+ .removeButton {
     width: 100%;
     padding: .5rem;
     background-color: bisque;
@@ -1174,7 +1174,15 @@ Macro.add('dialogclose', {
      Dialog.close();
  } 
 });
-/* twine-user-script #2: "gameButton.js" */
+/* twine-user-script #2: "events.js" */
+$(document).on(':passagestart', ()=> {
+    if (visited() < 2) {
+        State.variables[`${passage()}_btnHistory`] = {};
+    }
+    State.variables.btnCount = 1;
+});
+
+/* twine-user-script #3: "gameButton.js" */
 
 
 Macro.add('gotobutton', {
@@ -1198,28 +1206,6 @@ Macro.add('gotobutton', {
     }
 })
 
-Macro.add('dialoguebutton', {
-    isAsync: true,
-    tags: null,
-    handler: function () {
-        if (this.args.length === 0) {
-            return this.error('Passage name not provided');
-        }
-        const button = document.createElement('div');
-        button.classList.add('passageButton');
-        button.innerText = this.payload[0].contents;
-        let passage = this.args[0];
-
-        button.addEventListener('click', e => {
-            e.target.classList.add('visitedDialogue')
-            //Engine.play(passage)
-        })
-
-        $(this.output).append(button);
-
-
-    }
-})
 
 Macro.add('removebutton', {
     isAsync: true,
@@ -1230,31 +1216,59 @@ Macro.add('removebutton', {
         }
 
         const button = document.createElement('div');
-        button.classList.add('passageButton');
+        button.classList.add('removeButton');
         button.innerText = this.payload[0].contents;
-
-        if (condition) {
-            let btnNumber = State.variables.buttonsHistory.count + 1;
-            button.dataset.btnCount = btnNumber;
-            State.variables.buttonsHistory[`btn${btnNumber}`] = false;
-            State.variables.buttonsHistory.count++;
+        button.dataset.btnNum = State.variables.btnCount;
+        
+        if (visited() < 2) {
+            State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] = false;
         }
-
-        let passage = this.args[0];
-        let thisBtn;
 
         button.addEventListener('click', e => {
-            thisBtn = State.variables.buttonsHistory['btn' + e.target.dataset.btnCount]
-            State.variables.buttonsHistory['btn' + e.target.dataset.btnCount] = true;
-            e.target.remove()
+            State.variables[`${passage()}_btnHistory`][`btn${e.target.dataset.btnNum}`] = true;
+            Engine.play(this.args[0]);
         })
-
-        if (!thisBtn) {
+        
+        if (State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] === false){
             $(this.output).append(button);
         }
+
+        State.variables.btnCount ++;
     }
 })
-/* twine-user-script #3: "ibutton.js" */
+
+
+Macro.add('dialoguebutton', {
+    isAsync: true,
+    tags: null,
+    handler: function () {
+        if (this.args.length === 0) {
+            return this.error('Passage name not provided');
+        }
+
+        const button = document.createElement('div');
+        button.classList.add('dialogueButton');
+        button.innerText = this.payload[0].contents;
+        button.dataset.btnNum = State.variables.btnCount;
+        
+        if (visited() < 2) {
+            State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] = false;
+        }
+
+        button.addEventListener('click', e => {
+            State.variables[`${passage()}_btnHistory`][`btn${e.target.dataset.btnNum}`] = true;
+            Engine.play(this.args[0]);
+        })
+        
+        if (State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] === true){
+            button.classList.add('visitedDialogue')
+        }
+
+        $(this.output).append(button);
+        State.variables.btnCount ++;
+    }
+})
+/* twine-user-script #4: "ibutton.js" */
 
 Macro.add(['ibutton', 'ilink'], {
 	isAsync : true,
@@ -1348,7 +1362,7 @@ Macro.add(['ibutton', 'ilink'], {
 			.appendTo(this.output);
 	}
 });
-/* twine-user-script #4: "CaveSystem.js" */
+/* twine-user-script #5: "CaveSystem.js" */
 window.Cave = class Cave {
     constructor(config) {
         this.start = config.start,
@@ -1476,7 +1490,7 @@ window.Cave = class Cave {
         }
     }
 }
-/* twine-user-script #5: "joystick.js" */
+/* twine-user-script #6: "joystick.js" */
 
 
 window.joystick = {
@@ -1579,7 +1593,7 @@ window.joystick = {
 
 
 }
-/* twine-user-script #6: "Character.js" */
+/* twine-user-script #7: "Character.js" */
 
 window.Character = class Character {
     constructor(config) {
@@ -1777,7 +1791,7 @@ window.updateGame = function() {
     State.variables.player.updateGold();
     State.variables.diary.updateDiary();
 }
-/* twine-user-script #7: "chest.js" */
+/* twine-user-script #8: "chest.js" */
 window.Chest = class {
     constructor(config) {
         this.type = config.type; // player, chest, chest
@@ -2000,7 +2014,7 @@ document.querySelector('.takeAll').addEventListener('click', () => {
 document.querySelector('.placeAll').addEventListener('click', () => {
     State.variables.chest.placeAll()
 })
-/* twine-user-script #8: "diaryWindow.js" */
+/* twine-user-script #9: "diaryWindow.js" */
 window.Diary = class {
     constructor(config) {
         this.story = clone(config.story) || [];
@@ -2134,7 +2148,7 @@ window.Diary = class {
 
     }
 }
-/* twine-user-script #9: "inventoryWindow.js" */
+/* twine-user-script #10: "inventoryWindow.js" */
 
 
 window.Inventory = class {
@@ -2257,7 +2271,7 @@ window.Inventory = class {
         Dialog.open();
     }
 };
-/* twine-user-script #10: "worldMap.js" */
+/* twine-user-script #11: "worldMap.js" */
 window.Map = class Map {
     constructor(config) {
         this.locations = clone(config.locations) || [];
@@ -2362,7 +2376,7 @@ window.Map = class Map {
     }
 }
 
-/* twine-user-script #11: "shop.js" */
+/* twine-user-script #12: "shop.js" */
 window.Shop = class {
     constructor(config) {
         this.type = config.type; // player, shop, chest
@@ -2542,7 +2556,7 @@ document.querySelector('.switchShop').addEventListener('click', () => {
 
 
 /*---*/
-/* twine-user-script #12: "charCreation.js" */
+/* twine-user-script #13: "charCreation.js" */
 
 let avaiblePoints = 3;
 
@@ -2593,7 +2607,7 @@ setup.signPaper = function () {
         }
     }
 };
-/* twine-user-script #13: "statCheck.js" */
+/* twine-user-script #14: "statCheck.js" */
 window.checkStat = {
     base: $('.checkContainer')[0],
     arrow: $('.arrow')[0],
@@ -2703,7 +2717,7 @@ window.checkStat = {
         console.log(this.selected);
     }
 }
-/* twine-user-script #14: "UI.js" */
+/* twine-user-script #15: "UI.js" */
 
 setup.UI =  {
     upperUi : document.querySelector('.upperUi'),
@@ -2772,21 +2786,7 @@ setup.UI =  {
 
 document.getElementsByClassName('navigationButton')[0].addEventListener('click', () => {setup.UI.open()})
 
-/* twine-user-script #15: "gameLinks.js" */
-
-
-
-window.addButtonsEvents = function () {
-    
-
-    const passages = document.querySelectorAll('.passageButton')
-   
-    console.log(passages);
-
-    Array.from(passages).forEach((button, e) => {
-        console.log(e);
-    })
-}</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;include &quot;Calendar&quot;&gt;&gt;
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;include &quot;Calendar&quot;&gt;&gt;
 &lt;&lt;include &quot;GameItems&quot;&gt;&gt;
 &lt;&lt;include &quot;shopsList&quot;&gt;&gt;
 &lt;&lt;include &quot;chestList&quot;&gt;&gt;
@@ -2829,7 +2829,6 @@ window.addButtonsEvents = function () {
 
 &lt;&lt;script&gt;&gt;
 updateGame();
-window.addButtonsEvents();
 setup.UI.addEvents();
 State.variables.diary.addEvents();
 State.variables.map.addEvents();
@@ -3264,29 +3263,21 @@ State.variables.map.addEvents();
 
 
     
-    */</tw-passagedata><tw-passagedata pid="76" name="TestArea" tags="nobr" position="725,975" size="100,100">&lt;&lt;set $buttonsHistory to {
-    count: 0,
-}&gt;&gt;
+    */</tw-passagedata><tw-passagedata pid="76" name="TestArea" tags="nobr" position="725,975" size="100,100">&lt;&lt;gotobutton &quot;Test1&quot;&gt;&gt; Go to 2 &lt;&lt;/gotobutton&gt;&gt;
 
-&lt;div class=&quot;passageButton&quot;&gt;Change Passage&lt;/div&gt;
-&lt;div class=&quot;dialogue&quot;&gt;This is a dialogue&lt;/div&gt;
-&lt;div class=&quot;remove&quot;&gt;This text will be removed&lt;/div&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 1&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 2&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 3&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 4&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 5&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;dialoguebutton &quot;Test1&quot;&gt;&gt; dialog 1 &lt;&lt;/dialoguebutton&gt;&gt;
+&lt;&lt;dialoguebutton &quot;Test1&quot;&gt;&gt; dialog 2 &lt;&lt;/dialoguebutton&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="Test1" tags="" position="850,975" size="100,100">&lt;&lt;gotobutton &quot;TestArea&quot;&gt;&gt;Go to 1&lt;&lt;/gotobutton&gt;&gt;
 
-
-&lt;p class=&quot;narrator&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis veniam dignissimos commodi qui quasi sit temporibus sed, cumque assumenda rem quas labore ratione deleniti! Tenetur ut consequuntur quis dicta.&lt;/p&gt;
-&lt;p class=&quot;player&quot;&gt;This is player text box&lt;/p&gt;
-&lt;p class=&quot;npc&quot;&gt;this is Npc text box&lt;/p&gt;
-
-&lt;br&gt;
-
-&lt;&lt;gotobutton &quot;Test1&quot;&gt;&gt; A button &lt;&lt;/gotobutton&gt;&gt;
-
-&lt;&lt;dialoguebutton &quot;Test1&quot;&gt;&gt; A dialogue Option &lt;&lt;/dialoguebutton&gt;&gt;
-&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click &lt;&lt;/removebutton&gt;&gt;
-&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click &lt;&lt;/removebutton&gt;&gt;
-&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click &lt;&lt;/removebutton&gt;&gt;
-&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click &lt;&lt;/removebutton&gt;&gt;
-&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click &lt;&lt;/removebutton&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="Test1" tags="" position="850,975" size="100,100">&lt;&lt;gotobutton &quot;TestArea&quot;&gt;&gt;Go Back &lt;&lt;/gotobutton&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="TownSquare" tags="nobr" position="975,975" size="100,100">&lt;&lt;passage &quot;Inspect Monument&quot; &quot;Monument&quot;&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 1&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 2&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 3&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 4&lt;&lt;/removebutton&gt;&gt;
+&lt;&lt;removebutton &quot;Test1&quot;&gt;&gt; This Will disappear on click 5&lt;&lt;/removebutton&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="TownSquare" tags="nobr" position="975,975" size="100,100">&lt;&lt;passage &quot;Inspect Monument&quot; &quot;Monument&quot;&gt;&gt;
 &lt;&lt;passage &quot;Talk to child&quot; &quot;Kid5&quot;&gt;&gt;
 &lt;&lt;passage &quot;Sit on Bench&quot; &quot;TSBench&quot;&gt;&gt;
 &lt;br&gt;

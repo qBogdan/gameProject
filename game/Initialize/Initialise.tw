@@ -54,7 +54,6 @@ Untitled Game
 
 <<script>>
 updateGame();
-window.addButtonsEvents();
 setup.UI.addEvents();
 State.variables.diary.addEvents();
 State.variables.map.addEvents();

@@ -1,30 +1,22 @@
 
 :: TestArea [nobr] 
 
-<<set $buttonsHistory to {
-    count: 0,
-}>>
+<<gotobutton "Test1">> Go to 2 <</gotobutton>>
 
-<div class="passageButton">Change Passage</div>
-<div class="dialogue">This is a dialogue</div>
-<div class="remove">This text will be removed</div>
-
-
-<p class="narrator">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis veniam dignissimos commodi qui quasi sit temporibus sed, cumque assumenda rem quas labore ratione deleniti! Tenetur ut consequuntur quis dicta.</p>
-<p class="player">This is player text box</p>
-<p class="npc">this is Npc text box</p>
-
-<br>
-
-<<gotobutton "Test1">> A button <</gotobutton>>
-
-<<dialoguebutton "Test1">> A dialogue Option <</dialoguebutton>>
-<<removebutton "Test1">> This Will disappear on click <</removebutton>>
-<<removebutton "Test1">> This Will disappear on click <</removebutton>>
-<<removebutton "Test1">> This Will disappear on click <</removebutton>>
-<<removebutton "Test1">> This Will disappear on click <</removebutton>>
-<<removebutton "Test1">> This Will disappear on click <</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 1<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 2<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 3<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 4<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 5<</removebutton>>
+<<dialoguebutton "Test1">> dialog 1 <</dialoguebutton>>
+<<dialoguebutton "Test1">> dialog 2 <</dialoguebutton>>
 
 :: Test1
 
-<<gotobutton "TestArea">>Go Back <</gotobutton>>
+<<gotobutton "TestArea">>Go to 1<</gotobutton>>
+
+<<removebutton "Test1">> This Will disappear on click 1<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 2<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 3<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 4<</removebutton>>
+<<removebutton "Test1">> This Will disappear on click 5<</removebutton>>

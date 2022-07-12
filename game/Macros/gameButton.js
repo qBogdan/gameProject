@@ -21,28 +21,6 @@ Macro.add('gotobutton', {
     }
 })
 
-Macro.add('dialoguebutton', {
-    isAsync: true,
-    tags: null,
-    handler: function () {
-        if (this.args.length === 0) {
-            return this.error('Passage name not provided');
-        }
-        const button = document.createElement('div');
-        button.classList.add('passageButton');
-        button.innerText = this.payload[0].contents;
-        let passage = this.args[0];
-
-        button.addEventListener('click', e => {
-            e.target.classList.add('visitedDialogue')
-            //Engine.play(passage)
-        })
-
-        $(this.output).append(button);
-
-
-    }
-})
 
 Macro.add('removebutton', {
     isAsync: true,
@@ -53,27 +31,55 @@ Macro.add('removebutton', {
         }
 
         const button = document.createElement('div');
-        button.classList.add('passageButton');
+        button.classList.add('removeButton');
         button.innerText = this.payload[0].contents;
-
-        if (condition) {
-            let btnNumber = State.variables.buttonsHistory.count + 1;
-            button.dataset.btnCount = btnNumber;
-            State.variables.buttonsHistory[`btn${btnNumber}`] = false;
-            State.variables.buttonsHistory.count++;
+        button.dataset.btnNum = State.variables.btnCount;
+        
+        if (visited() < 2) {
+            State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] = false;
         }
-
-        let passage = this.args[0];
-        let thisBtn;
 
         button.addEventListener('click', e => {
-            thisBtn = State.variables.buttonsHistory['btn' + e.target.dataset.btnCount]
-            State.variables.buttonsHistory['btn' + e.target.dataset.btnCount] = true;
-            e.target.remove()
+            State.variables[`${passage()}_btnHistory`][`btn${e.target.dataset.btnNum}`] = true;
+            Engine.play(this.args[0]);
         })
-
-        if (!thisBtn) {
+        
+        if (State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] === false){
             $(this.output).append(button);
         }
+
+        State.variables.btnCount ++;
+    }
+})
+
+
+Macro.add('dialoguebutton', {
+    isAsync: true,
+    tags: null,
+    handler: function () {
+        if (this.args.length === 0) {
+            return this.error('Passage name not provided');
+        }
+
+        const button = document.createElement('div');
+        button.classList.add('dialogueButton');
+        button.innerText = this.payload[0].contents;
+        button.dataset.btnNum = State.variables.btnCount;
+        
+        if (visited() < 2) {
+            State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] = false;
+        }
+
+        button.addEventListener('click', e => {
+            State.variables[`${passage()}_btnHistory`][`btn${e.target.dataset.btnNum}`] = true;
+            Engine.play(this.args[0]);
+        })
+        
+        if (State.variables[`${passage()}_btnHistory`][`btn${State.variables.btnCount}`] === true){
+            button.classList.add('visitedDialogue')
+        }
+
+        $(this.output).append(button);
+        State.variables.btnCount ++;
     }
 })
