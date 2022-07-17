@@ -13,10 +13,29 @@
 
 :: Test1
 
-<<gotobutton "TestArea">>Go to 1<</gotobutton>>
+<div class='mine'></div>
+<div id='joystick'></div>
 
-<<removebutton "Test1">> This Will disappear on click 1<</removebutton>>
-<<removebutton "Test1">> This Will disappear on click 2<</removebutton>>
-<<removebutton "Test1">> This Will disappear on click 3<</removebutton>>
-<<removebutton "Test1">> This Will disappear on click 4<</removebutton>>
-<<removebutton "Test1">> This Will disappear on click 5<</removebutton>>
+
+<<button "enter cave">>
+<<run 
+$cave.create($mine);
+joystick.create('joystick')
+>>
+<</button>>
+
+:: mineEvent_194 
+
+ <<button "loot the chest">>
+    <<dialogclose>>
+    <<run 
+        $chest.openChest('random', '10')
+    >>
+ <</button>>
+
+:: mineEvent_357
+
+<<gotobutton "TownSquare">>Leave mine <</gotobutton>>
+<<button "return" >>
+<<dialogclose>>
+<</button>>

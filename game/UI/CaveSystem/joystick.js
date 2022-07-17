@@ -16,7 +16,7 @@ window.joystick = {
     this.stick.classList.add('stick')
 
     this.base.append(this.stick);
-
+ 
     const container = document.getElementById(containerClass);
     container.append(this.base);
 

@@ -14,7 +14,8 @@ Macro.add('gotobutton', {
         let passage = this.args[0];
 
         button.addEventListener('click', e => {
-            Engine.play(passage)
+            Engine.play(passage);
+            Dialog.close();
         })
 
         $(this.output).append(button);
